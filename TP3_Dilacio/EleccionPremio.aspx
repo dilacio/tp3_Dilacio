@@ -17,7 +17,7 @@
                 <h5 class="card-title"><% = item.Titulo %></h5>
                 <p class="card-text"><% = item.Descripcion %></p>
             </div>
-            
+            <a class="btn btn-danger" href="Alta.aspx?idProducto=<% = item.ID.ToString() %>">Seleccionar</a>
         </div>
         <% } %>
     </div>

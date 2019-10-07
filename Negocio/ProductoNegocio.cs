@@ -70,8 +70,6 @@ namespace Negocio
             finally
             {
                 Datos.CerrarConexion();
-                Datos = null;
-
             }
         }
     }
