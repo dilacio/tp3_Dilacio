@@ -50,15 +50,16 @@ namespace Negocio
 
             try
             {
-                Datos.SetearQuery("SELECT [Titulo],[Descripcion],[URLImagen]  FROM [TP_WEB].[dbo].[Productos]");
+                Datos.SetearQuery("SELECT [ID],[Titulo],[Descripcion],[URLImagen]  FROM [TP_WEB].[dbo].[Productos]");
                 Datos.EjecutarLector();
 
                 while (Datos.Lector.Read())
                 {
                     Aux = new Producto();
-                    Aux.Titulo = Datos.Lector.GetString(0);
-                    Aux.Descripcion = Datos.Lector.GetString(1);
-                    Aux.URLImagen = Datos.Lector.GetString(2);
+                    Aux.ID = (int)(Int64)Datos.Lector.GetInt64(0);
+                    Aux.Titulo = Datos.Lector.GetString(1);
+                    Aux.Descripcion = Datos.Lector.GetString(2);
+                    Aux.URLImagen = Datos.Lector.GetString(3);
                     Lista.Add(Aux);
                 }
                 return Lista;

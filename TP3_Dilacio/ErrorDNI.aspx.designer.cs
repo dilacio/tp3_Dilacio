@@ -10,16 +10,7 @@
 namespace TP3_Dilacio {
     
     
-    public partial class Index {
-        
-        /// <summary>
-        /// txbIngresoVoucher control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbIngresoVoucher;
+    public partial class ErrorDNI {
         
         /// <summary>
         /// BtnSiguiente control.

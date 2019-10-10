@@ -17,12 +17,24 @@ namespace TP3_Dilacio
         {
             try
             {
+                string NumVoucher;
                 ProductoNegocio Negocio = new ProductoNegocio();
                 ListaProductos = Negocio.Listar();
             }
             catch (Exception Ex)
             {
 
+                throw Ex;
+            }
+        }
+        protected void Btn_Siguiente(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("IngresoDatos.aspx");
+            }
+            catch (Exception Ex)
+            {
                 throw Ex;
             }
         }

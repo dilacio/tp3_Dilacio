@@ -10,24 +10,15 @@
 namespace TP3_Dilacio {
     
     
-    public partial class Index {
+    public partial class ErrorVoucher {
         
         /// <summary>
-        /// txbIngresoVoucher control.
+        /// BtnNext control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbIngresoVoucher;
-        
-        /// <summary>
-        /// BtnSiguiente control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnSiguiente;
+        protected global::System.Web.UI.WebControls.Button BtnNext;
     }
 }

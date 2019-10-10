@@ -16,8 +16,9 @@
             <div class="card-body">
                 <h5 class="card-title"><% = item.Titulo %></h5>
                 <p class="card-text"><% = item.Descripcion %></p>
+                <a href="IngresoDatos.aspx?ValorProducto=<%=item.ID.ToString()%>" class="btn btn-danger" >Seleccionar</a>
             </div>
-            <a class="btn btn-danger" href="Alta.aspx?idProducto=<% = item.ID.ToString() %>">Seleccionar</a>
+            <%--<div style="text-align:center;">  <asp:Button ID="BtnNext" CssClass="btn alert-primary" runat="server" Text="Siguiente" OnClick="Btn_Siguiente" /></div>--%>
         </div>
         <% } %>
     </div>
