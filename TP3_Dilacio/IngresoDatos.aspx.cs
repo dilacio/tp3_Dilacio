@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Negocio;
 using Dominio;
+using System.Net;
+using System.Net.Mail;
 
 namespace TP3_Dilacio
 {
@@ -17,6 +19,36 @@ namespace TP3_Dilacio
             txbDNI.Attributes.Add("onkeypress", "return ValidNum(event);");
             
             ID = Request.QueryString["ValorProducto"].ToString(); 
+
+        }
+        public static void EnviarEmail(string To)
+        {
+            System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage();
+
+            mail.From = new MailAddress("pedrotonello11@gmail.com");
+
+            mail.To.Add(To);
+            mail.Subject = "Confirmacion del sorteo ";
+            mail.Body = "Felicitaciones ya se encuentra participando del sorteo.";
+
+            SmtpClient smtp = new SmtpClient();
+
+            smtp.Host = "smtp.gmail.com";
+            smtp.Port = 25; //465; //587
+            smtp.Credentials = new NetworkCredential("voucherstpmaxi@gmail.com", "vouchers123");
+            smtp.EnableSsl = true;
+            try
+            {
+                smtp.Send(mail);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("No se ha podido enviar el email", ex.InnerException);
+            }
+            finally
+            {
+                smtp.Dispose();
+            }
 
         }
         protected void Valido_IngredoDNI()
@@ -88,6 +120,7 @@ namespace TP3_Dilacio
                     if (Neg.GuardarCliente(Cli))
                     {
                         Response.Redirect("OperacionExitosa.aspx");
+                        EnviarEmail(Cli.Mail);
                     }
                 }
                 else
@@ -95,7 +128,7 @@ namespace TP3_Dilacio
                     VoucherNegocio VouNeg = new VoucherNegocio();
 
                     Response.Redirect("OperacionExitosa.aspx");
-
+                    EnviarEmail(Cli.Mail);
 
                 }
             }
